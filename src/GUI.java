@@ -1,5 +1,8 @@
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
@@ -8,6 +11,9 @@ public class GUI {
     JFrame window;
     JTextArea textArea;
     JScrollPane scrollPane;
+    JMenuBar menuBar;
+    JMenu menuFile, menuEdit, menuFormat, menuColor;
+    JMenuItem INew, IOpen, ISave, ISaveAs, IExit;
     public static void main(String[] args) {
 
         new GUI();
@@ -17,6 +23,8 @@ public class GUI {
 
         createWindow();
         createTextArea();
+        createMenuBar();
+        createFileMenu();
 
         window.setVisible(true);
 
@@ -35,5 +43,38 @@ public class GUI {
         scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
         window.add(scrollPane);
+    }
+    public void createMenuBar() {
+        menuBar = new JMenuBar();
+        window.setJMenuBar(menuBar);
+
+        menuFile = new JMenu("File");
+        menuBar.add(menuFile);
+
+        menuEdit = new JMenu("Edit");
+        menuBar.add(menuEdit);
+
+        menuFormat = new JMenu("Format");
+        menuBar.add(menuFormat);
+
+        menuColor = new JMenu("Color");
+        menuBar.add(menuColor);
+    }
+    public void createFileMenu() {
+
+        INew = new JMenuItem("New");
+        menuFile.add(INew);
+
+        IOpen = new JMenuItem("Open");
+        menuFile.add(IOpen);
+
+        ISave = new JMenuItem("Save");
+        menuFile.add(ISave);
+
+        ISaveAs = new JMenuItem("Save As");
+        menuFile.add(ISaveAs);
+
+        IExit = new JMenuItem("Exit");
+        menuFile.add(IExit);
     }
 }
