@@ -25,9 +25,12 @@ public class GUI implements ActionListener {
     // FORMAT MENU
     JMenuItem IWrap, IFontArial, IFontCSMS, IFontTMR, IFontSize8, IFontSize12, IFontSize16, IFontSize20, IFontSize24, IFontSize28;
     JMenu menuFont, menuFontSize;
+    // COLOR MENU
+    JMenuItem IColor1, IColor2, IColor3, IColor4, IColor5;
 
     Function_File file = new Function_File(this);
     Function_Format format = new Function_Format(this);
+    Function_Color color = new Function_Color(this);
     public static void main(String[] args) {
 
         new GUI();
@@ -40,10 +43,12 @@ public class GUI implements ActionListener {
         createMenuBar();
         createFileMenu();
         createFormatMenu();
+        createColorMenu();
 
         format.selectedFont = "Arial";
         format.createFont(16);
         format.wordWrap();
+        color.changeColor("White");
         window.setVisible(true);
 
     }
@@ -159,6 +164,34 @@ public class GUI implements ActionListener {
         menuFontSize.add(IFontSize24);
 
     }
+    public void createColorMenu() {
+
+        IColor1 = new JMenuItem("White");
+        IColor1.addActionListener(this);
+        IColor1.setActionCommand("White");
+        menuColor.add(IColor1);
+
+        IColor2 = new JMenuItem("Black");
+        IColor2.addActionListener(this);
+        IColor2.setActionCommand("Black");
+        menuColor.add(IColor2);
+
+        IColor3 = new JMenuItem("Gray");
+        IColor3.addActionListener(this);
+        IColor3.setActionCommand("Gray");
+        menuColor.add(IColor3);
+
+        IColor4 = new JMenuItem("Blue");
+        IColor4.addActionListener(this);
+        IColor4.setActionCommand("Blue");
+        menuColor.add(IColor4);
+
+        IColor5 = new JMenuItem("Red");
+        IColor5.addActionListener(this);
+        IColor5.setActionCommand("Red");
+        menuColor.add(IColor5);
+
+    }
 
 
     @Override
@@ -182,6 +215,12 @@ public class GUI implements ActionListener {
         case "size20": format.createFont(20); break;
         case "size24": format.createFont(24); break;
         case "size28": format.createFont(28); break;
+        case "White": color.changeColor(command); break;
+        case "Black": color.changeColor(command); break;
+        case "Gray": color.changeColor(command); break;
+        case "Blue": color.changeColor(command); break;
+        case "Red": color.changeColor(command); break;
+
 
 
 
