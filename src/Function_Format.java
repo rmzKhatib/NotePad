@@ -3,7 +3,7 @@ import java.awt.Font;
 public class Function_Format {
 
     GUI gui;
-    Font arial, comicSansMS, timesNewRoman, broadway, bookshelfSymbol7, bookmanOldStyle;
+    Font arial, comicSansMS, timesNewRoman, broadway, bookshelfSymbol7, bookmanOldStyle, bellMT;
     String selectedFont;
 
     public Function_Format(GUI gui) {
@@ -37,6 +37,7 @@ public class Function_Format {
         broadway = new Font("Broadway", Font.PLAIN, fontSize);
         bookshelfSymbol7 = new Font("Bookshelf Symbol 7", Font.PLAIN, fontSize);
         bookmanOldStyle = new Font("Bookman Old Style", Font.PLAIN, fontSize);
+        bellMT = new Font("Bell MT", Font.PLAIN, fontSize);
 
         setFont(selectedFont);
 
@@ -63,6 +64,9 @@ public class Function_Format {
                 break;
             case "Bookman Old Style":
                 gui.textArea.setFont(bookmanOldStyle);
+                break;
+            case "Bell MT":
+                gui.textArea.setFont(bellMT);
                 break;
             
         }

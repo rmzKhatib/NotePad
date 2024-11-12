@@ -26,7 +26,7 @@ public class GUI implements ActionListener {
     // FILE MENU
     JMenuItem INew, IOpen, ISave, ISaveAs, IExit;
     // FORMAT MENU
-    JMenuItem IWrap, IFontArial, IFontCSMS, IFontTMR, IFontBroadway, IFontBS7, IFontBOS, IFontSize8, IFontSize12, IFontSize16, IFontSize20, IFontSize24, IFontSize28, IFontSize100;
+    JMenuItem IWrap, IFontArial, IFontCSMS, IFontTMR, IFontBroadway, IFontBS7, IFontBOS, IFontBMT, IFontSize4, IFontSize8, IFontSize12, IFontSize16, IFontSize20, IFontSize24, IFontSize28, IFontSize100;
     JMenu menuFont, menuFontSize;
     // COLOR MENU
     JMenuItem IColor1, IColor2, IColor3, IColor4, IColor5;
@@ -65,7 +65,8 @@ public class GUI implements ActionListener {
     public void createWindow() {
 
         window = new JFrame("NotePad");
-        window.setSize(800,600);
+        window.setSize(400,650);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
@@ -169,8 +170,18 @@ public class GUI implements ActionListener {
         IFontBOS.setActionCommand("Bookman Old Style");
         menuFont.add(IFontBOS);
 
+        IFontBMT = new JMenuItem("Bell MT");
+        IFontBMT.addActionListener(this);
+        IFontBMT.setActionCommand("Bell MT");
+        menuFont.add(IFontBMT);
+
         menuFontSize = new JMenu("Font Size");
         menuFormat.add(menuFontSize);
+
+        IFontSize4 = new JMenuItem("4");
+        IFontSize4.addActionListener(this);
+        IFontSize4.setActionCommand("size4");
+        menuFontSize.add(IFontSize4);
 
         IFontSize8 = new JMenuItem("8");
         IFontSize8.addActionListener(this);
@@ -270,14 +281,16 @@ public class GUI implements ActionListener {
         case "Times New Roman": format.setFont(command); break;
         case "Broadway": format.setFont(command); break;
         case "Bookshelf Symbol 7": format.setFont(command); break;
-        case "Bookman Old Style" : format.setFont(command); break;
+        case "Bookman Old Style": format.setFont(command); break;
+        case "Bell MT": format.setFont(command); break;
+        case "size4": format.createFont(4); break;
         case "size8": format.createFont(8); break;
         case "size12": format.createFont(12); break;
         case "size16": format.createFont(16); break;
         case "size20": format.createFont(20); break;
         case "size24": format.createFont(24); break;
         case "size28": format.createFont(28); break;
-        case "size100" : format.createFont(100); break;
+        case "size100": format.createFont(100); break;
         case "White": color.changeColor(command); break;
         case "Black": color.changeColor(command); break;
         case "Gray": color.changeColor(command); break;
