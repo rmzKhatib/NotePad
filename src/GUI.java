@@ -26,7 +26,7 @@ public class GUI implements ActionListener {
     // FILE MENU
     JMenuItem INew, IOpen, ISave, ISaveAs, IExit;
     // FORMAT MENU
-    JMenuItem IWrap, IFontArial, IFontCSMS, IFontTMR, IFontSize8, IFontSize12, IFontSize16, IFontSize20, IFontSize24, IFontSize28;
+    JMenuItem IWrap, IFontArial, IFontCSMS, IFontTMR, IFontBroadway, IFontBS7, IFontBOS, IFontSize8, IFontSize12, IFontSize16, IFontSize20, IFontSize24, IFontSize28, IFontSize100;
     JMenu menuFont, menuFontSize;
     // COLOR MENU
     JMenuItem IColor1, IColor2, IColor3, IColor4, IColor5;
@@ -154,6 +154,21 @@ public class GUI implements ActionListener {
         IFontTMR.setActionCommand("Times New Roman");
         menuFont.add(IFontTMR);
 
+        IFontBroadway = new JMenuItem("Broadway");
+        IFontBroadway.addActionListener(this);
+        IFontBroadway.setActionCommand("Broadway");
+        menuFont.add(IFontBroadway);
+
+        IFontBS7 = new JMenuItem("Bookshelf Symbol 7");
+        IFontBS7.addActionListener(this);
+        IFontBS7.setActionCommand("Bookshelf Symbol 7");
+        menuFont.add(IFontBS7);
+
+        IFontBOS = new JMenuItem("Bookman Old Style");
+        IFontBOS.addActionListener(this);
+        IFontBOS.setActionCommand("Bookman Old Style");
+        menuFont.add(IFontBOS);
+
         menuFontSize = new JMenu("Font Size");
         menuFormat.add(menuFontSize);
 
@@ -181,6 +196,16 @@ public class GUI implements ActionListener {
         IFontSize24.addActionListener(this);
         IFontSize24.setActionCommand("size24");
         menuFontSize.add(IFontSize24);
+
+        IFontSize28 = new JMenuItem("28");
+        IFontSize28.addActionListener(this);
+        IFontSize28.setActionCommand("size28");
+        menuFontSize.add(IFontSize28);
+
+        IFontSize100 = new JMenuItem("100");
+        IFontSize100.addActionListener(this);
+        IFontSize100.setActionCommand("size100");
+        menuFontSize.add(IFontSize100);
 
     }
     public void createColorMenu() {
@@ -243,12 +268,16 @@ public class GUI implements ActionListener {
         case "Arial": format.setFont(command); break;
         case "Comic Sans MS": format.setFont(command); break;
         case "Times New Roman": format.setFont(command); break;
+        case "Broadway": format.setFont(command); break;
+        case "Bookshelf Symbol 7": format.setFont(command); break;
+        case "Bookman Old Style" : format.setFont(command); break;
         case "size8": format.createFont(8); break;
         case "size12": format.createFont(12); break;
         case "size16": format.createFont(16); break;
         case "size20": format.createFont(20); break;
         case "size24": format.createFont(24); break;
         case "size28": format.createFont(28); break;
+        case "size100" : format.createFont(100); break;
         case "White": color.changeColor(command); break;
         case "Black": color.changeColor(command); break;
         case "Gray": color.changeColor(command); break;
